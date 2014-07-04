@@ -1,0 +1,8 @@
+.vagrant/
+target/
+tools/
+packages/
+bin/
+obj/
+*.user
+*.gen.*

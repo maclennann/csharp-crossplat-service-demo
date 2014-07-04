@@ -1,0 +1,7 @@
+dir TopShelfTest\bin\Debug
+-nologo
+-cg TopShelfTest_Files
+-gg -scom -sreg -sfrag -srd 
+-dr Install_TopShelfTest 
+-var var.SourceDir
+-out installers\TopShelfTest_files.gen.wxs

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="*" 
+		Name="TopShelfTest" 
+		Language="1033" 
+		Version="1.0.0"
+		Manufacturer="nromdotcom" 
+		UpgradeCode="{4688317a-818d-40b9-8013-9884277adb1d}">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+    
+    <Media Id="1" Cabinet="product.cab" EmbedCab="yes" />
+
+		<Property Id="PREVIOUSVERSIONSINSTALLED" Secure="yes" />
+		<Upgrade Id="{4688317a-818d-40b9-8013-9884277adb1d}">
+			<UpgradeVersion
+					Minimum="1.0.0.0" Maximum="99.0.0.0"
+					Property="PREVIOUSVERSIONINSTALLED"
+					IncludeMinimum="yes" IncludeMaximum="no" />
+		</Upgrade>
+
+		<Property Id="REINSTALLMODE" Value="dmus" />
+
+        <Feature Id="TopShelfTest" Title="TopShelfTest">
+            <ComponentGroupRef Id="TopShelfTest_Files" />
+        </Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+                <Directory Id="NromDotComFolder" Name="nromdotcom">
+                  <Directory Id="INSTALLFOLDER" Name="TopShelfTest">
+                    <Directory Id="Install_TopShelfTest" Name="bin">
+                    </Directory>
+                  </Directory>
+                </Directory>
+			</Directory>
+		</Directory>
+	</Fragment>
+
+  <Fragment>
+  
+	<CustomAction Id="InstallService"
+			Directory="Install_TopShelfTest"
+			ExeCommand="[Install_TopShelfTest]TopShelfTest.exe install"
+			Execute="commit"
+			Return="ignore"/>
+			
+		<CustomAction Id="UninstallService"
+			Directory="Install_TopShelfTest"
+			ExeCommand="[Install_TopShelfTest]TopShelfTest.exe uninstall"
+			Return="ignore"/>
+    <InstallExecuteSequence>
+      <RemoveExistingProducts After="InstallInitialize" />
+	  <Custom Action="InstallService" Before="InstallFinalize"></Custom>
+	  <Custom Action="UninstallService" Before="RemoveFiles">Installed AND NOT REINSTALL</Custom>
+    </InstallExecuteSequence>
+  </Fragment>
+</Wix>

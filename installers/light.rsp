@@ -1,0 +1,6 @@
+-dSourceDir=TopShelfTest\bin\Debug
+target\installers\TopShelfTest\TopShelfTest_files.gen.wixobj
+target\installers\TopShelfTest\Product.wixobj
+-out target\installers\TopShelfTest\TopShelfTest.msi
+-nologo
+-sw1076

@@ -1,0 +1,5 @@
+-dSourceDir=TopShelfTest\bin\Debug
+-nologo
+-out target\installers\TopShelfTest\
+installers\Product.wxs
+installers\TopShelfTest_Files.gen.wxs
