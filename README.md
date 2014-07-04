@@ -22,7 +22,7 @@ The final challenge is packaging for distribution/deployment. When this task is 
 
 ### More Details
 
-As mentioned above, this is a NancyFX application. Just a simple self-hosted application. It uses TopShelf to become a Windows service (see control commands [here](http://docs.topshelf-project.com/en/latest/overview/commandline.html)). It also uses TopShelf.Linux to become a Unix daemon. TopShelf.Linux isn't quite feature-complete yet, but having the Linux package install an Upstart script provides most daemon-like benefits. It's just another way I'm trying to get a 1-to-1 between Windows and Linux.
+As mentioned above, this is a NancyFX application. Just a simple self-hosted application. It uses TopShelf to become a Windows service (see control commands [here](http://docs.topshelf-project.com/en/latest/overview/commandline.html)). It also uses TopShelf.Linux to become a Unix daemon. [TopShelf.Linux](https://github.com/pruiz/Topshelf.Linux) isn't quite feature-complete yet, but having the generated packages install an Upstart script provides most daemon-like benefits. It's just another way I'm trying to get a 1-to-1 between Windows and Linux.
 
 ### Usage Notes
 
