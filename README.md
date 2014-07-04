@@ -2,7 +2,9 @@
 
 (or: I just heard about TopShelf today and wanted to try it out)
 
-This repository contains a C# project called "TopShelfTest." It is a [NancyFX](http://nancyfx.org/) web application that uses [TopShelf](http://topshelf-project.com/) to provide service configuration.
+Look for a short blog post in a day or two for a quick overview of the important parts. or just look through the code. 
+
+This repository contains a C# project called "TopShelfTest." It is a [NancyFX](http://nancyfx.org/) web application that uses [TopShelf](http://topshelf-project.com/) to provide service configuration. In short, it provides a basic, minimalistic, cross-platform C# web service.
 
 It is meant to explore C# cross-platform compatibility between .NET and Mono (Linux, specifically) for simple web services, and the feasibility of targeting for both platforms simultaneously. Both from a development and packaging/deployment perspective.
 
