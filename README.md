@@ -10,19 +10,7 @@ It is meant to explore C# cross-platform compatibility between .NET and Mono (Li
 
 The idea is that, if it becomes radically simpler (or at least well-known how simple it is) to target both platforms right out of the gate, more developers will consider C# for their projects and maybe contribute to the community.
 
-####Development
-
-C# is already pretty well cross-platform, as Mono has made great strides toward feature-parity recently. But recent versions aren't usually found in major distro repositories. To tackle this, I provide a `vagrant` box that uses a puppet manifest to install the latest version of Mono from a PPA.
-
-Another minor challenge is the difference in workflows between Windows and Linux developers. I use `rake` to provide a couple of tasks that will execute the correct commands based on environment. For example, choosing xbuild vs msbuild, or pulling packages from `nuget` without having an IDE that provides automatic nuget restore.
-
-####Packaging
-
-The final challenge is packaging for distribution/deployment. When this task is executed on Linux, it generates a `.deb` and `.rpm` package (using [fpm](https://github.com/jordansissel/fpm)). When it is executed on Windows, it uses `WiX` to generate an `.msi`.  It's entirely possible that Linux can package msis through Wine or something or Windows can package debs or rpms, which is something I plan to try adding.
-
-### More Details
-
-As mentioned above, this is a NancyFX application. Just a simple self-hosted application. It uses TopShelf to become a Windows service (see control commands [here](http://docs.topshelf-project.com/en/latest/overview/commandline.html)). It also uses TopShelf.Linux to become a Unix daemon. [TopShelf.Linux](https://github.com/pruiz/Topshelf.Linux) isn't quite feature-complete yet, but having the generated packages install an Upstart script provides most daemon-like benefits. It's just another way I'm trying to get a 1-to-1 between Windows and Linux.
+I have written [a blog post](http://blog.normmaclennan.com/cross-platform-web-services-in-c-with-nancyfx-and-topshelf/) covering the various technologies, frameworks, and patterns used (from a high level). At this point the project is simple enough that it is probably plenty accessibile for people trying to learn, but I might also add more in-depth information onto the wiki. I just didn't want to overload anything with giant blog posts or READMEs.
 
 ### Usage Notes
 
