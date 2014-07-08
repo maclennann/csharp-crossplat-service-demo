@@ -10,7 +10,7 @@ before_install:
  - sudo apt-get install -qq software-properties-common > /dev/null
  - sudo add-apt-repository -y ppa:directhex/monoxide
  - sudo apt-get update -qq > /dev/null
- - sudo apt-get install -qq mono-complete ruby ruby-rake ruby-bundler > /dev/null
+ - sudo apt-get install -qq mono-complete ruby-dev ruby-bundler rpm > /dev/null
  - mozroots --import --sync
  - bundle
 
