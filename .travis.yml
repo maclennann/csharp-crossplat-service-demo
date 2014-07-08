@@ -8,7 +8,7 @@ before_install:
  # Make sure mono is installed,
  # pipe stdout to dev/null because qq is still too chatty
  - sudo apt-get install -qq software-properties-common > /dev/null
- - sudo add-apt-respository -y ppa:directhex/monoxide
+ - sudo add-apt-repository -y ppa:directhex/monoxide
  - sudo apt-get update -qq > /dev/null
  - sudo apt-get install -qq mono-complete ruby ruby-rake ruby-bundler > /dev/null
  - mozroots --import --sync
