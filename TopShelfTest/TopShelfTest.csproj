@@ -84,7 +84,7 @@
     <None Include="scripts\preuninstall.sh">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="scripts\TopShelfTest.sh">
+    <None Include="scripts\TopShelfTest.conf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Web.Debug.config">
