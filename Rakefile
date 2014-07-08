@@ -25,6 +25,7 @@ desc 'Bundle and installer (msi or deb)'
 task :bundle do
 # Use msbuild in .net and xbuild in mono
 	if OS.windows?
+		Rake::Task["wix_bootstrap"].execute
 		Rake::Task["msi_bundle"].execute
 	else
 		Rake::Task["lin_bundle"].execute
@@ -78,10 +79,29 @@ task :nuget_bootstrap do
 end
 
 task :wix_bootstrap do
-	if !FileTest.exist?("#{WIX}")
-		abort 'Please download the WiX binaries from http://wix.codeplex.com/releases/view/115492 and extract them to tools/wix/'
+	puts 'Ensuring WiX exists in tools/wix'
+	
+	if !FileTest.exist?(WIX)
+		if !FileTest.exist?("#{TOOLS}/wix.zip")
+			puts 'Downloading wix from codeplex.com'
+			
+			File.open("#{TOOLS}/wix.zip", "wb") do |file|
+				file.write open('http://download-codeplex.sec.s-msft.com/Download/Release?ProjectName=wix&DownloadId=762938&FileTime=130301249355530000&Build=20919').read
+			end
+		end
+
+		puts 'Extracting WiX archive to #{WIX}'
+		Zip::ZipFile.open("#{TOOLS}/wix.zip") do |zip|
+			zip.each do |f|
+				path = File.join(WIX, f.name)
+				FileUtils.mkdir_p(File.dirname(path))
+				zip.extract(f,path) unless File.exist?(path)
+			end
+		end
+		
 	end
 end
+
 
 # Fetch nuget dependencies for all packages
 task :nuget_fetch => :nuget_bootstrap do
