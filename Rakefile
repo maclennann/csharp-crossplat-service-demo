@@ -11,6 +11,9 @@ WIX = File.expand_path("#{TOOLS}/wix")
 desc 'Do it all'
 task :make => [:retrieve,:build,:bundle]
 
+desc 'Retrieve nuget dependencies'
+task :retrieve => [:nuget_bootstrap,:nuget_fetch]
+
 desc 'Build the solution (msbuild or xbuild)'
 task :build do
 	# Use msbuild in .net and xbuild in mono
@@ -30,11 +33,6 @@ task :bundle do
 	else
 		Rake::Task["lin_bundle"].execute
 	end
-end
-
-desc 'Retrieve nuget dependencies'
-task :retrieve do
-	Rake::Task["nuget_fetch"].execute
 end
 
 msbuild :net_build do |b|
