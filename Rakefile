@@ -58,8 +58,8 @@ task :lin_bundle do
 		FileUtils.mkdir_p("target/installers/TopShelfTest")
 	end
 	
-	sh "fpm -s dir -t deb -n TopShelfTest -v 0.0.3 -p target/installers/TopShelfTest/topshelftest-0.0.3.deb --prefix /opt/TopShelfTest --after-install TopShelfTest/scripts/postinstall.sh --before-remove TopShelfTest/scripts/preuninstall.sh /vagrant/TopShelfTest/bin/Debug"
-	sh "fpm -s dir -t rpm -n TopShelfTest -v 0.0.3 -p target/installers/TopShelfTest/topshelftest-0.0.3.rpm --prefix /opt/TopShelfTest --after-install TopShelfTest/scripts/postinstall.sh --before-remove TopShelfTest/scripts/preuninstall.sh /vagrant/TopShelfTest/bin/Debug"
+	sh "fpm -s dir -t deb -n TopShelfTest -v 0.0.3 -p target/installers/TopShelfTest/topshelftest-0.0.3.deb --prefix /opt/TopShelfTest --after-install TopShelfTest/scripts/postinstall.sh --before-remove TopShelfTest/scripts/preuninstall.sh TopShelfTest/bin/Debug"
+	sh "fpm -s dir -t rpm -n TopShelfTest -v 0.0.3 -p target/installers/TopShelfTest/topshelftest-0.0.3.rpm --prefix /opt/TopShelfTest --after-install TopShelfTest/scripts/postinstall.sh --before-remove TopShelfTest/scripts/preuninstall.sh TopShelfTest/bin/Debug"
 end
 
 # If we don't have a copy of nuget, download it
