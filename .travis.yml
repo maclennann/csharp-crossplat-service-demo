@@ -13,6 +13,14 @@ before_install:
 script:
 - rake make
 deploy:
+  - provider: releases
+    api_key:
+      secure: oVH2axL6to1Pty+S2h2JZ+QTgVjJN7FGmlXxD0FOj4pjE8be4ZvLuHSHmnSlG0dZWYHn598y4GNGyRAeKzeMRB0ssJ1SGvPQWBki70lnawQfXHEMW8rZCF9LJ7v8e3khgFNXHMSlHZ+1JUN/+1Rb7cumwCq/KO0gWXlYWEcJ4F8=
+    file: "target/installers/TopShelfTest/topshelftest-0.0.3.rpm"
+    skip_cleanup: true
+    on:
+      tags: true
+      repo: maclennann/csharp-crossplat-service-demo
   - provider: heroku
     buildpack: https://github.com/friism/heroku-buildpack-mono.git
     api_key:
@@ -20,10 +28,4 @@ deploy:
     app: csharpservice
     on:
       repo: maclennann/csharp-crossplat-service-demo
-  - provider: releases
-    api_key:
-      secure: oVH2axL6to1Pty+S2h2JZ+QTgVjJN7FGmlXxD0FOj4pjE8be4ZvLuHSHmnSlG0dZWYHn598y4GNGyRAeKzeMRB0ssJ1SGvPQWBki70lnawQfXHEMW8rZCF9LJ7v8e3khgFNXHMSlHZ+1JUN/+1Rb7cumwCq/KO0gWXlYWEcJ4F8=
-    file: target/installers/TopShelfTest/topshelftest-0.0.3.rpm
-    skip_cleanup: true
-    on:
-      repo: maclennann/csharp-crossplat-service-demo
+
