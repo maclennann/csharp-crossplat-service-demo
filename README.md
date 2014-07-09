@@ -2,6 +2,10 @@
 
 ![Build Status](https://travis-ci.org/maclennann/csharp-crossplat-service-demo.svg?branch=master)
 
+[Live Version (hosted on Heroku)](http://csharpservice.herokuapp.com/)
+
+[Blog post with details on the project (sans Travis/Heroku)](http://blog.normmaclennan.com/cross-platform-web-services-in-c-with-nancyfx-and-topshelf/)
+
 (or: I just heard about TopShelf today and wanted to try it out)
 
 This repository contains a C# project called "TopShelfTest." It is a [NancyFX](http://nancyfx.org/) web application that uses [TopShelf](http://topshelf-project.com/) to provide service configuration. In short, it provides a basic, minimalistic, cross-platform C# web service.
@@ -9,8 +13,6 @@ This repository contains a C# project called "TopShelfTest." It is a [NancyFX](h
 It is meant to explore C# cross-platform compatibility between .NET and Mono (Linux, specifically) for simple web services, and the feasibility of targeting for both platforms simultaneously. Both from a development and packaging/deployment perspective.
 
 The idea is that, if it becomes radically simpler (or at least well-known how simple it is) to target both platforms right out of the gate, more developers will consider C# for their projects and maybe contribute to the community.
-
-I have written [a blog post](http://blog.normmaclennan.com/cross-platform-web-services-in-c-with-nancyfx-and-topshelf/) covering the various technologies, frameworks, and patterns used (from a high level). At this point the project is simple enough that it is probably plenty accessibile for people trying to learn, but I might also add more in-depth information onto the wiki. I just didn't want to overload anything with giant blog posts or READMEs.
 
 ### Usage Notes
 
