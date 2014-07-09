@@ -20,6 +20,7 @@ deploy:
     skip_cleanup: true
     on:
       tags: true
+      branch: master
       repo: maclennann/csharp-crossplat-service-demo
   - provider: heroku
     buildpack: https://github.com/friism/heroku-buildpack-mono.git
