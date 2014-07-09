@@ -1,8 +1,8 @@
 ###Cross-Platform Service Test
 
-(or: I just heard about TopShelf today and wanted to try it out)
+[](https://travis-ci.org/maclennann/csharp-crossplat-service-demo.svg?branch=master)
 
-Look for a short blog post in a day or two for a quick overview of the important parts. or just look through the code. 
+(or: I just heard about TopShelf today and wanted to try it out)
 
 This repository contains a C# project called "TopShelfTest." It is a [NancyFX](http://nancyfx.org/) web application that uses [TopShelf](http://topshelf-project.com/) to provide service configuration. In short, it provides a basic, minimalistic, cross-platform C# web service.
 

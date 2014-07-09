@@ -8,12 +8,17 @@ namespace TopShelfTest
     {
         static void Main(string[] args)
         {
+            var port = 5000;
+            if (args.Length > 0)
+            {
+                int.TryParse(args[0], out port);
+            }
             HostFactory.Run(x =>
             {
                 x.UseLinuxIfAvailable();
                 x.Service<NancyApp>(s =>
                 {
-                    s.ConstructUsing(name => new NancyApp("http://localhost:3579"));
+                    s.ConstructUsing(name => new NancyApp("http://localhost:"+port));
                     s.WhenStarted(tc => tc.Start());
                     s.WhenStopped(tc => tc.Stop());
                 });
