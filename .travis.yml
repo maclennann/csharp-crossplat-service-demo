@@ -1,18 +1,21 @@
 language: c
-
 env:
- global:
-  - EnableNuGetPackageRestore=true 
-
+  global:
+  - EnableNuGetPackageRestore=true
 before_install:
- # Make sure mono is installed,
- # pipe stdout to dev/null because qq is still too chatty
- - sudo apt-get install -qq software-properties-common > /dev/null
- - sudo add-apt-repository -y ppa:directhex/monoxide
- - sudo apt-get update -qq > /dev/null
- - sudo apt-get install -y -qq mono-complete ruby-dev ruby-bundler rpm > /dev/null || echo ""
- - mozroots --import --sync
- - bundle
-
+- sudo apt-get install -qq software-properties-common > /dev/null
+- sudo add-apt-repository -y ppa:directhex/monoxide
+- sudo apt-get update -qq > /dev/null
+- sudo apt-get install -y -qq mono-complete ruby-dev ruby-bundler rpm > /dev/null
+  || echo ""
+- mozroots --import --sync
+- bundle
 script:
- - rake make
+- rake make
+deploy:
+  provider: heroku
+  api_key:
+    secure: D8kt1EaSfFz89IeSoKuziPBkMvvOVxyS14rC6kuksxhMhQNj7DqJWIK9ZWDNqOZgIyw4eAt9gk53ttVIWx61f2iVtjZTPZXshS9MSFtclrpsmt86/oief1026/rJJR7wpmGhsUmjWktLPeyI4y7wKBefgIsv0F1FaXzx7XueDYo=
+  app: csharpservice
+  on:
+    repo: maclennann/csharp-crossplat-service-demo
