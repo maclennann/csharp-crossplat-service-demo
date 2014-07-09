@@ -1,6 +1,6 @@
 ###Cross-Platform Service Test
 
-[](https://travis-ci.org/maclennann/csharp-crossplat-service-demo.svg?branch=master)
+![Build Status](https://travis-ci.org/maclennann/csharp-crossplat-service-demo.svg?branch=master)
 
 (or: I just heard about TopShelf today and wanted to try it out)
 

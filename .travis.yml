@@ -14,6 +14,7 @@ script:
 - rake make
 deploy:
   provider: heroku
+  buildpack: https://github.com/friism/heroku-buildpack-mono/
   api_key:
     secure: D8kt1EaSfFz89IeSoKuziPBkMvvOVxyS14rC6kuksxhMhQNj7DqJWIK9ZWDNqOZgIyw4eAt9gk53ttVIWx61f2iVtjZTPZXshS9MSFtclrpsmt86/oief1026/rJJR7wpmGhsUmjWktLPeyI4y7wKBefgIsv0F1FaXzx7XueDYo=
   app: csharpservice
