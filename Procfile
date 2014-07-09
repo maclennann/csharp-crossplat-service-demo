@@ -1,1 +1,1 @@
-web: mono TopShelfTest.exe $PORT
+web: mono TopShelfTest.exe

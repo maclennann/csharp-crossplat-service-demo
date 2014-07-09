@@ -8,11 +8,14 @@ namespace TopShelfTest
     {
         static void Main(string[] args)
         {
-            var port = 5000;
-            if (args.Length > 0)
+            var port = 3579;
+
+            try
             {
-                int.TryParse(args[0], out port);
-            }
+                var newPort = Environment.GetEnvironmentVariable("PORT");
+                int.TryParse(newPort, out port);
+            }catch(Exception e){}
+
             HostFactory.Run(x =>
             {
                 x.UseLinuxIfAvailable();
