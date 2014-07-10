@@ -6,15 +6,14 @@ namespace TopShelfTest
 {
     class Program
     {
+        private const int DEFAULT_PORT = 3579;
+
         static void Main(string[] args)
         {
-            var port = 3579;
+            int port;
 
-            try
-            {
-                var newPort = Environment.GetEnvironmentVariable("PORT");
-                int.TryParse(newPort, out port);
-            }catch(Exception e){}
+            var newPort = Environment.GetEnvironmentVariable("PORT");
+            if (!int.TryParse(newPort, out port)) port = DEFAULT_PORT;
 
             HostFactory.Run(x =>
             {
