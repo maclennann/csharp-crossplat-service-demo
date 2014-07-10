@@ -1,6 +1,6 @@
 ###Cross-Platform Service Test
 
-![Build Status](https://travis-ci.org/maclennann/csharp-crossplat-service-demo.svg?branch=master)
+![Build Status](https://travis-ci.org/maclennann/csharp-crossplat-service-demo.svg)
 
 [Live Version (hosted on Heroku)](http://csharpservice.herokuapp.com/)
 
