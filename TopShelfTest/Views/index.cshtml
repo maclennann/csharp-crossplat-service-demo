@@ -3,20 +3,105 @@
 <head>
     <meta charset="utf-8" />
     <title>TopShelfTest</title>
-
-	<style type="text/css">
-
-		body {
-			text-align: center;
-		}
-
-	</style>
-
+    <link rel="stylesheet" type="text/css" href="Content/bootstrap.min.css">
 </head>
-<body>
-	<img src="~/Content/norm-logo.png" alt="Norm logo" /><br />
-    A .NET app on Heroku? And it hasn't touched Windows at any point in the pipeline? What sorcery is this?<br/><br/>
+    <body>
+        
+        <!-- Static navbar -->
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">C#/Mono On Heroku</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">How?</a></li>
+                        <li><a href="#contact">Links</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+        <div class="container">
+            <a id="home"></a>
+            <div class="page-header">
+                <h1>C#/Mono Website on Heroku</h1>
+                <p class="lead">It's possible. And it's pretty easy.</p>
+            </div>
+            <div class="jumbotron">
+                <div class="row">
+                    <div class="col-md-6 well">
+                        <img src="~/Content/norm-logo.png" alt="Norm logo" width="400" />
+                    </div>
+                    <div class="col-md-6">
+                        A .NET app on Heroku? And it hasn't touched Windows at any point in the pipeline? What sorcery is this?<br/><br/>
     
-    (photo credit: <a href="http://twitter.com/terribledev">tparnell</a>)
-</body>
+                        (photo credit: <a href="http://twitter.com/terribledev">tparnell</a>)
+                    </div>
+                </div>
+            </div>
+        
+            <a id="about"></a>
+            <div class="row">
+                <h2>How?</h2>
+                <div class="col-md-12">
+                    C#/.NET hasn't historically been known for being a "continuous delivery"/"cloud"/"PaaS" language. When did it become the kind of thing that one can continuously delivery to Heroku?<br/>
+                    <br/>
+                    Well...it's been like that for a while.<br/><br/>
+                    
+                    <h3>Mono</h3>
+                    
+                    Mono has been making it increasingly-easy to run .NET applications on *nix systems. It kind of sucked for a while, but has been getting steadily better since Xamarin has taken over.
+                    <br/><br/>
+                    
+                    <h3>NancyFX/Topshelf</h3>
+                    
+                    NancyFX is a lightweight web framework for .NET that has excellent Mono compatibility. It provides a "self-hosting" option so one needn't use Apache or IIS to host the application.<br/>
+                    <br/>
+                    Topshelf is a service wrapper. It makes it easier to run self-hosted applications, like those using Nancy, without having to keep a session open running a console application.
+                    
+                    <h3>Travis-CI</h3>
+                    
+                    Travis-CI is a popular and flexible cloud CI service. Unfortunately, it doesn't support .NET as a first-class citizen, but it is pretty easy to trick it into compiling your C# application.<br/>
+                    <br/>
+                    A few modifications to the <a href="https://github.com/maclennann/csharp-crossplat-service-demo/blob/master/.travis.yml">.travis.yml</a> to add a PPA and install the mono packages and you are good to go.
+                    
+                    <h3>Heroku</h3>
+                    
+                    Heroku certainly isn't known for their friendliness to C#. Most .NET developer who need a PaaS probably use Azure Websites or AppHarbor. Well, believe it or not, it's pretty easy to get it running C#.<br/>
+                    <br/>
+                    There is a very good <a href="https://github.com/wilfrem/heroku-buildpack-mono">mono buildpack</a> that runs .NET apps no problem.
+                </div>
+            </div>
+            <a id="contact"></a>
+            <div class="row">
+                <h2>Links</h2>
+                <div class="col-md-12">
+                    Umm. I don't have any links but the the ones in the #How? section, really... Maybe I'll add some.
+                </div>
+            </div>
+        </div>
+        
+        <br/><br/><br/>
+        <center>
+            <div class="footer"><p class="text-muted">Something In the Footer.</p></div>
+        </center>
+        
+        
+        
+        
+        
+        <a href="https://github.com/maclennann/csharp-crossplat-service-demo"><img style="position: absolute; top: 0; right: 0; border: 0; z-index:10000;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+        
+
+        <script src="Content/jquery-1.9.0.min.js"></script>
+        <script src="Content/bootstrap.min.js"></script>
+        
+    </body>
 </html>
